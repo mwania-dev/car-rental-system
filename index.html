@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DriveEasy Car Rentals</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="logo">Drive<span>Easy</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#cars">Cars</a>
+      <a href="#booking">Book Now</a>
+      <a href="#history">My Bookings</a>
+      <a href="#contact">Contact</a>
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      <button type="button" class="btn btn-small" id="authBtn">Login</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Rent the Perfect Car for Every Journey</h1>
+      <p>Affordable prices, well-maintained vehicles, and easy online booking.</p>
+      <a href="#cars" class="btn">Browse Cars</a>
+      <a href="#booking" class="btn btn-outline">Book Now</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>Why Choose DriveEasy?</h2>
+    <div class="features">
+      <div class="feature"><h3>💰 Fair Prices</h3><p>Transparent daily rates with no hidden fees.</p></div>
+      <div class="feature"><h3>🛠 Well Maintained</h3><p>Every car is serviced and cleaned before each rental.</p></div>
+      <div class="feature"><h3>⚡ Fast Booking</h3><p>Reserve your car online in under two minutes.</p></div>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="section featured">
+    <h2>Featured Cars</h2>
+    <div class="car-grid" id="featuredGrid"></div>
+  </section>
+
+  <!-- CAR LISTING -->
+  <section id="cars" class="section">
+    <h2>Our Fleet</h2>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search by name or model..." />
+      <select id="categoryFilter">
+        <option value="All">All Categories</option>
+      </select>
+      <select id="priceFilter">
+        <option value="0">Any Price</option>
+        <option value="40">Up to $40/day</option>
+        <option value="80">Up to $80/day</option>
+        <option value="120">Up to $120/day</option>
+      </select>
+      <button type="button" class="btn btn-small" id="resetFilters">Reset</button>
+    </div>
+
+    <p id="resultCount" class="result-count"></p>
+    <div class="car-grid" id="carGrid"></div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section id="booking" class="section">
+    <h2>Book a Car</h2>
+    <form id="bookingForm" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" />
+      <small class="error" id="nameError"></small>
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" placeholder="e.g. 0712345678" />
+      <small class="error" id="phoneError"></small>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" />
+      <small class="error" id="emailError"></small>
+
+      <label for="carSelect">Choose a Car</label>
+      <select id="carSelect"><option value="">-- Select a car --</option></select>
+      <small class="error" id="carSelectError"></small>
+
+      <label for="pickup">Pickup Date</label>
+      <input type="date" id="pickup" />
+      <small class="error" id="pickupError"></small>
+
+      <label for="returnDate">Return Date</label>
+      <input type="date" id="returnDate" />
+      <small class="error" id="returnDateError"></small>
+
+      <p id="totalBox" class="total"></p>
+
+      <button type="submit" class="btn">Submit Booking Request</button>
+      <p id="successMsg" class="success"></p>
+    </form>
+  </section>
+
+  <!-- BOOKING HISTORY -->
+  <section id="history" class="section">
+    <h2>My Bookings</h2>
+    <div id="historyList"></div>
+    <p style="text-align:center">
+      <button type="button" class="btn btn-small" id="clearHistory">Clear History</button>
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <p>📍 45 Main Road &nbsp;|&nbsp; 📞 +254 700 000 000 &nbsp;|&nbsp; ✉ hello@driveeasy.com</p>
+    <p><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Twitter</a></p>
+    <p><a href="admin.html">Admin Dashboard</a></p>
+    <p>© 2026 DriveEasy Car Rentals. All rights reserved.</p>
+  </footer>
+
+  <!-- POPUP (used for car details and login) -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/features.js"></script>
+</body>
+</html>
